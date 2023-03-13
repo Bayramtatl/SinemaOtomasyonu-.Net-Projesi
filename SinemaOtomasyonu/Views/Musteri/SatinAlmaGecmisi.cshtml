@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SinemaOtomasyonu.Models.Bilet>
+
+@{
+    ViewData["Title"] = "SatinAlmaGecmisi";
+    Layout = "_Layout_Musteri";
+}
+
+<h2 class="my-5 p-2">Satın Alma Geçmişiniz</h2>
+
+<table class="table table-bordered text-center">
+    <thead>
+        <tr>
+            <th>
+                Bilet
+            </th>
+            <th>
+                Film
+            </th>
+            <th>
+                Seans
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fiyat)
+            </th>
+            <th>
+                Koltuk No.
+            </th>
+            <th>
+                Durum
+            </th>
+            <th>
+                İptal
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @if (item != null)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BiletDurumu)
+                    </td>
+                    <td>
+                        @item.Seans.Film.FilmAdi
+                    </td>
+                    <td>
+                        @item.Seans.Gun.Tarih.Date.ToShortDateString() / @Html.DisplayFor(modelItem => item.Seans.Saat)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Fiyat) ₺
+                    </td>
+                    <td>
+                        @item.Koltuk.KoltukNo
+                    </td>
+                    <td>
+                        @if (item.AktifMi == true)
+                        {
+                            <span style="color: blue">Aktif</span>
+                        }
+                        else
+                        {
+                            <span style="color: yellow">Pasif</span>
+                        }
+                </td>
+                <td>
+                    <a asp-action="BiletIptal" asp-route-id="@item.Id" class="btn btn-danger">İptal Et</a>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

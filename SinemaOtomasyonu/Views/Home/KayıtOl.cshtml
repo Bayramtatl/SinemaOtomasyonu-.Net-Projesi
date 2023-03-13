@@ -1,0 +1,76 @@
+﻿@model SinemaOtomasyonu.Models.Musteri
+@{
+    ViewData["Title"] = "KayıtOl Page";
+}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand " href="#">CineMaximum Sinema</a>
+
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link"style="color: white;" href="#">Film Listesi <span class="sr-only">(current)</span></a>
+      </li>
+
+      <li class="nav-item mx-4">
+        <a class="nav-link"style="color: white;" href="#">Kayıt Ol</a>
+      </li>
+      <li class="nav-item mx-2">
+        <a class="nav-link"style="color: white;" href="#">Giriş Yap</a>
+      </li>
+       <li class="nav-item mx-4">
+        <a class="nav-link"style="color: white;" href="#">Teknik Destek</a>
+      </li>
+            <li class="nav-item">
+          <a class="nav-link mx-2" href="#">
+<img src="https://i.pinimg.com/originals/52/8d/c6/528dc63c325e3186e8baf7fdbb6cc10b.png" alt="Gold Class Salon Sizin" style="max-height: 24px">
+</a>
+      </li>
+      <li class="nav-item  mx-1">
+          <a class="nav-link mx-2" href="#">
+<img src="https://www.apkmirror.com/wp-content/uploads/2019/08/5d463ed487a0d.png" alt="Gold Class Salon Sizin" style="max-height: 24px">
+</a>
+      </li>
+    </ul>
+</nav>
+<form asp-controller="Musteri" asp-action="KayıtOl" method="post">
+      <h1 class="text-center bg-opacity-10">
+          Kayıt Ol
+      </h1>
+  <div class="form-row mt-4">
+    <div class="form-group col-md-6">
+      <label for="kullaniciAdi">Kullanıcı Adı</label>
+      <input asp-for="KullaniciAdi" class="form-control"  placeholder="Kullanıcı Adı">@Html.ValidationMessageFor(m => m.KullaniciAdi)
+    </div>
+    <div class="form-group col-md-6">
+      <label for="Sifre">Şifre</label>
+      <input asp-for="Sifre" class="form-control"  placeholder="Şifre">@Html.ValidationMessageFor(m => m.Sifre)
+    </div>
+  </div>
+  <div class="form-row">
+  <div class="form-group col-md-6 mt-3">
+    <label for="Yas">Yaşınız</label>
+    <input asp-for="Yas" class="form-control"  placeholder="Yaşınız">@Html.ValidationMessageFor(m => m.Yas)
+  </div>
+  <div class="form-group col-md-6 mt-5">
+   <select class="form-select" asp-for="Cinsiyet" aria-label="Default select example">@Html.ValidationMessageFor(m => m.Cinsiyet)
+  <option selected>Cinsiyet Seçiniz</option>
+  <option value="true">Erkek</option>
+  <option value="false">Kadın</option>
+</select>
+  </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6 mt-3">
+      <label for="Maas">Maas</label>
+      <input asp-for="Maas" class="form-control" placeholder="7000">@Html.ValidationMessageFor(m => m.Maas)
+    </div>
+    <div class="form-group col-md-6 mt-5">
+   <select class="form-select" asp-for="UyelikTipi" aria-label="Default select example">
+  <option selected>UyelikTipi Seçiniz</option>@Html.ValidationMessageFor(m => m.UyelikTipi)
+  <option value="true">Normal</option>
+  <option value="false">Öğrenci</option>
+  <option value="false">VIP</option>
+</select>
+  </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Kayıt Ol</button>
+</form>

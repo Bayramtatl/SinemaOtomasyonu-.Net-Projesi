@@ -1,0 +1,45 @@
+﻿@model SinemaOtomasyonu.Models.Gun
+@{
+    ViewData["Title"] = "GunEkle";
+    Layout = "_Layout_Yetkili";
+}
+      <form asp-action="GunEkle" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Tarih" class="control-label"></label>
+                <input asp-for="Tarih" is-accept-old-day="false" value="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" />
+                <span asp-validation-for="Tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gün Ekle" class="au-btn au-btn-icon au-btn--green au-btn--small"/>
+            </div>
+        </form>
+<hr />
+<div class="row">
+    <table class="table table-borderless table-striped table-earning" m-5>
+        <thead>
+            <tr>
+                <th scope="col">Günler </th>
+                <th scope="col">Gün Sil</th>                                                
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var gun in ViewBag.Gunler)
+            {
+                <tr>
+                    <th scope="row">@gun.Tarih.ToString("dd/MM/yyyy")</th>
+                    <td>
+                        <a class="btn btn-danger"
+                       asp-route-id="@gun.Id" asp-controller="Yetkili" asp-action="GunSil">Gün Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

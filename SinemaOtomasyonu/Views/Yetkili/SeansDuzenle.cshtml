@@ -1,0 +1,82 @@
+﻿@model SinemaOtomasyonu.Models.Seans
+
+@{
+    ViewData["Title"] = "SeansDuzenle";
+    Layout = "_Layout_Yetkili";
+}
+
+<h2 class="mt-2 title-1">Seans Bilgileri</h2>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SeansDuzenle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label class="control-label">Seans İsmi</label>
+                <input asp-for="Saat" class="form-control" />
+                <span asp-validation-for="Saat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Film Seçiniz</label>
+                <select asp-for="FilmId" class="form-control" asp-items="ViewBag.Filmler"></select>
+                <span asp-validation-for="FilmId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Salon Seçiniz</label>
+                <select asp-for="SalonId" class="form-control" asp-items="ViewBag.Salonlar"></select>
+                <span asp-validation-for="SalonId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> Gün Seçiniz</label>
+                <select asp-for="GunId" class="form-control" asp-items="ViewBag.Gunler"></select>
+                <span asp-validation-for="GunId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4" style="margin-left: 15rem;">
+        <h4 class="bg-secondary text-white text-center" style="border-bottom: 2px solid red; margin-bottom: 5rem;">Salon Durumu</h4>
+        <div class="btn btn-dark ml-4 disabled" style="height:30px; width: 250px;"> Ekran </div>
+        <br /><br />
+        <div class="ml-5 mb-2">
+            @foreach (var Koltuk in ViewBag.Koltuklar)
+            {
+                int x = 1;
+                if (@Koltuk.BosMu == true)
+                {
+                    <a class="btn btn-success">@Koltuk.KoltukNo</a>
+                }
+                else
+                {
+                    <a class="btn btn-danger">@Koltuk.KoltukNo</a>
+                }
+                if (@Koltuk.KoltukNo == 5 * x)
+                {
+                    <br /> <br />
+                    x = x + 2;
+                }
+            }
+        </div>
+        <p>
+            @for (int i = 6; i < 13; i++)
+            {
+                <a class="btn btn-danger">@i</a>
+            }
+        </p>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

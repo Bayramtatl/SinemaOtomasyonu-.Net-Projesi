@@ -1,0 +1,49 @@
+﻿@model SinemaOtomasyonu.Models.Film
+
+@{
+    Layout = "_Layout_Yetkili";
+    ViewData["Title"] = "View";
+}
+<h4>Film</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-controller="Yetkili" asp-action="FilmEkle" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" value="0"/>
+            <div class="form-group">
+                <label asp-for="FilmAdi" class="control-label"></label>
+                <input asp-for="FilmAdi" class="form-control"/>
+                <span asp-validation-for="FilmAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VizyonaGiris" class="control-label"></label>
+                <input asp-for="VizyonaGiris" is-accept-old-day="false" class="form-control"  type="date" value="@DateTime.Now.ToString("yyyy-MM-dd")"/>
+                <span asp-validation-for="VizyonaGiris" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VizyondanCikis" class="control-label"></label>
+                <input asp-for="VizyondanCikis" is-accept-old-day="false" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                <span asp-validation-for="VizyondanCikis" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Fragman" class="control-label"></label>
+                <input asp-for="Fragman" class="form-control" />
+                <span asp-validation-for="Fragman" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

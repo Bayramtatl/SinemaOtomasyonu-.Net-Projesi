@@ -1,0 +1,38 @@
+﻿@model SinemaOtomasyonu.Models.Yetkili
+
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "YetkiliGiris";
+}
+
+<h1>YetkiliGiris</h1>
+<hr />
+<div class="row">
+    <form method="post" asp-controller="Yetkili" asp-action="YetkiliGiris" class="mt-4">
+        <div class="form-group">
+            <h1 style="background-color : #f1f1f1; color : Blue; text-align : center"> Giriş Yap </h1>
+        </div>
+        <div class="form-group">
+            <label for="kullaniciAdi">Kullanıcı Adı</label>
+            <input class="form-control" asp-for="KullaniciAdi">@Html.ValidationMessageFor(m => m.KullaniciAdi)
+        </div>
+        <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input class="form-control" asp-for="Sifre">@Html.ValidationMessageFor(m => m.Sifre)
+        </div>
+        <div class="form-group">
+            <label class="form-check-label"><input type="checkbox"> Giriş Bilgilerini Hatırla</label>
+        </div>
+        <button type="submit" asp-controller="Yetkili" asp-action="YetkiliGiris" class="btn btn-primary my-4">Giriş Yap !</button>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

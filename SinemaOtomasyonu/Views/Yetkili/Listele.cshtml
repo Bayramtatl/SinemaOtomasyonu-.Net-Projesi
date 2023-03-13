@@ -1,0 +1,34 @@
+﻿@model IEnumerable<SinemaOtomasyonu.Models.Gun>
+@{
+    Layout = "_Layout_Yetkili";
+}
+<div class="row mt-4">
+        <ul>
+            @foreach(var item in Model) {
+            <a class="btn btn-info" asp-controller="Yetkili" asp-action="Listele" asp-route-id="@item.Id" type="submit">@item.Tarih.ToShortDateString()</a>
+            }
+        </ul>
+    @foreach(var film in ViewBag.filmler){
+    <div class="col-sm-6">
+        <div class="card mt-4">
+            <div class="card-header bg-gradient">
+                <h4> <a class="link-primary">@film.FilmAdi</a></h4>
+            </div>
+            <div class="card-body">
+               <p>Vizyona Giriş : @film.VizyonaGiris.ToShortDateString()</p>
+               <p>Vizyondan Çıkış : @film.VizyondanCikis.ToShortDateString()</p>
+                    <iframe width="100%" height="315" src="@film.Fragman" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <select class="form-select col-sm-3">Seanslar :
+                    <option>09.00</option>
+                    <option>12.00</option>
+                    <option>15.00</option>
+                </select>
+                <button class="btn btn-outline-success mt-3" type="submit">Filmi Güncelle</button>
+            </div>
+            <div class="card-footer">Rezerve edilen biletler film saatinden 30 dakika önceye kadar
+                alınmalıdır. Aksi halde iptal edilir.
+            </div>
+        </div>
+    </div>
+    }
+ </div>

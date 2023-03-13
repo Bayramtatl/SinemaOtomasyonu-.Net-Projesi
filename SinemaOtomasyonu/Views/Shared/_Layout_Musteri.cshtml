@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/SinemaOtomasyonu.styles.css" asp-append-version="true" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <style>
+        li {
+            border-bottom: 1px solid orange;
+        }
+
+            li:hover {
+                border-bottom: 1px solid white;
+            }
+
+        .margin-top {
+            margin-top: 4rem;
+        }
+
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <a class="navbar-brand " href="#">StaticCodes Sinema</a>
+
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" style="color: white;" asp-controller="Musteri" asp-action="Index">Film Listesi <span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item mx-4">
+                <a class="nav-link" style="color: white;" asp-controller="Musteri" asp-action="Bilgiler">Kullanıcı Bilgilerim</a>
+            </li>
+            <li class="nav-item mx-2">
+                <a class="nav-link" style="color: white;" asp-controller="Musteri" asp-action="SatinAlmaGecmisi">Satın Alma Geçmişim</a>
+            </li>
+            <li class="nav-item mx-4">
+                <a class="nav-link" style="color: white;">Teknik Destek</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link mx-2">
+                    <img src="https://i.pinimg.com/originals/52/8d/c6/528dc63c325e3186e8baf7fdbb6cc10b.png" alt="Gold Class Salon Sizin" style="max-height: 24px">
+                </a>
+            </li>
+            <li class="nav-item  mx-1">
+                <a class="nav-link mx-2">
+                    <img src="https://www.apkmirror.com/wp-content/uploads/2019/08/5d463ed487a0d.png" alt="Gold Class Salon Sizin" style="max-height: 24px">
+                </a>
+            </li>
+            <li> </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <main role="main" class="pb-3 margin-top">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2022 - SinemaOtomasyonu - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="https://lipis.github.io/bootstrap-sweetalert/lib/sweet-alert.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/Scripts/jquery-1.11.3.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script type="text/javascript">
+        function Bilet(id, koltukId) {
+
+            //swal({
+            //    title: "Bilet Rezervasyonu",
+            //    text: "Onayla",
+            //    icon: "success",
+            //    buttons: true,
+            //    dangerMode: false,
+            //})
+            //    .then((silinecek) => {
+            //        if (silinecek) {
+            //            $.ajax({
+            //                type: "GET",
+            //                url: "/Musteri/BiletOnay?" + id+ "&" +koltukId,
+            //                contentType: "application/home/index; charset=utf-8",
+            //                dataType: "html",
+            //                success: function () {
+            //                    swal("Rezerve Edildi", {
+            //                        icon: "success",
+            //                    }).then(function () {
+            //                        //window.location.href = "/Musteri/Index"
+            //                        url: "/Musteri/BiletOnay?" + id + "&" + koltukId
+            //                        // url: "/Home/Index/"
+            //                    });
+
+            //                }
+            //            });
+
+            //        }
+            //        else {
+            //            swal("İptal Edildi");
+            //        }
+            //    });
+        }
+    </script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

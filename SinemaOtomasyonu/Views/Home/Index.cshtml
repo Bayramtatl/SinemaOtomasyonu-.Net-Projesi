@@ -1,0 +1,124 @@
+﻿@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Home Page";
+}
+@model SinemaOtomasyonu.Models.Musteri
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand " href="#">StaticCodes Sinema</a>
+
+    <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+            <a class="nav-link" style="color: white;" href="#">Film Listesi <span class="sr-only">(current)</span></a>
+        </li>
+
+        <li class="nav-item mx-4">
+            <a class="nav-link" style="color: white;" href="#">Kayıt Ol</a>
+        </li>
+        <li class="nav-item mx-2">
+            <a class="nav-link" style="color: white;" href="#">Giriş Yap</a>
+        </li>
+        <li class="nav-item mx-4">
+            <a class="nav-link" style="color: white;" href="#">Teknik Destek</a>
+        </li>
+        <li class="nav-item mx-4">
+            <a class="nav-link" style="color: white;" asp-controller="Yetkili" asp-action="YetkiliGiris">Yetkili</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link mx-2" href="#">
+                <img src="https://i.pinimg.com/originals/52/8d/c6/528dc63c325e3186e8baf7fdbb6cc10b.png" alt="Gold Class Salon Sizin" style="max-height: 24px">
+            </a>
+        </li>
+        <li class="nav-item  mx-1">
+            <a class="nav-link mx-2" href="#">
+                <img src="https://www.apkmirror.com/wp-content/uploads/2019/08/5d463ed487a0d.png" alt="Gold Class Salon Sizin" style="max-height: 24px">
+            </a>
+        </li>
+        <li> </li>
+    </ul>
+</nav>
+<div class="row mt-4 ml-5">
+    <div class="col-sm-8">
+        <form method="post" asp-controller="Musteri" asp-action="GirisYap" class="mt-4">
+            @*<div class="form-group">
+            <h1 style="background-color : #f1f1f1; color : Blue; text-align : center"> Giriş Yap </h1>
+            </div>
+            <div class="form-group">
+            <label for="kullaniciAdi">Kullanıcı Adı</label>
+            <input class="form-control" asp-for="KullaniciAdi">@Html.ValidationMessageFor(m => m.KullaniciAdi)
+            </div>
+            <div class="form-group">
+            <label for="inputPassword">Password</label>
+            <input class="form-control" asp-for="Sifre">@Html.ValidationMessageFor(m => m.Sifre)
+            </div>
+            <div class="form-group">
+            <label class="form-check-label"><input type="checkbox"> Giriş Bilgilerini Hatırla</label>
+            </div>
+            <button type="submit" class="btn btn-primary my-4">Giriş Yap !</button>
+            <a asp-controller="Home" asp-action="KayıtOl" class="btn btn-secondary my-4">Henüz üye değil misin ? Kayıt Ol !</a>
+            *@
+            <div class="login-content col-8" style="margin-left: 6rem;">
+                <div class="login-logo">
+                    <a href="#">
+                        <img src="/img/icon/logo.png" alt="CoolAdmin">
+                    </a>
+                </div>
+                <div class="login-form col-10">
+                    <form action="" method="post">
+                        <div class="form-group">
+                            <label for="kullaniciAdi">Kullanıcı Adı</label>
+                            <input class="form-control" asp-for="KullaniciAdi">@Html.ValidationMessageFor(m => m.KullaniciAdi)
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword">Şifre</label>
+                            <input class="form-control" asp-for="Sifre">@Html.ValidationMessageFor(m => m.Sifre)
+                        </div>
+                        <div class="login-checkbox">
+                            <label>
+                                <input type="checkbox" name="remember">Beni Hatırla
+                            </label>
+                            <label>
+                                <a href="#">Şifreni mi Unuttun?</a>
+                            </label>
+                        </div>
+                        <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">sign in</button>
+                        <div class="social-login-content">
+                            <div class="social-button">
+                                <button class="au-btn au-btn--block au-btn--blue m-b-20">sign in with facebook</button>
+                                <button class="au-btn au-btn--block au-btn--blue2">sign in with twitter</button>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="register-link">
+                        <p>
+                            Hesabın Yok mu ?
+                            <a href="#">Kayıt Ol</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-sm-4">
+        @*<div class="card mt-4">
+        <div class="card-header bg-gradient">
+        <h4> <a href="#" class="link-primary"> Senelik 300 TL'den başlayan Vip Fırsatları </a></h4>
+        </div>
+        <div class="card-body">
+        <p class="alert-info">Ayda ücretsiz 1 film izleme ve daha fazlası için</p><hr />
+        <button class="btn btn-outline-success"> Hemen VIP üye ol !</button>
+        </div>
+        <div class="card-footer">Üyelik sezondan sezona yenilenir</div>
+        </div>*@
+        <div class="card mt-5">
+            <img class="card-img-top" src="/img/icon/vip.png" alt="Card image cap">
+            <div class="card-body">
+                <h4 class="card-title mb-3">Senelik 300 TL'den başlayan Vip Fırsatları </h4>
+                <p class="card-text">
+                    Ayda ücretsiz 1 film izleme ve daha fazlası için
+                </p>
+                <button class="btn btn-outline-success"> Hemen VIP üye ol !</button>
+            </div>
+            <div class="card-footer">Üyelik sezondan sezona yenilenir</div>
+        </div>
+    </div>
+</div>

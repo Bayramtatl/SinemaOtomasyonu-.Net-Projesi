@@ -1,0 +1,69 @@
+﻿@model SinemaOtomasyonu.Models.Seans
+
+@{
+    Layout = "_Layout_Musteri";
+    ViewData["Title"] = "BiletSayfasi";
+    var musteriSession = Context.Session.GetObjectFromJson<Musteri>("Musteri");
+}
+
+<h2 class="mt-5">Bilet Bilgileriniz</h2>
+<div class="row">
+<div class="col-5 mr-5">
+    <input type="hidden" asp-for="Id">
+    <hr/>
+    <table class="table table-bordered">
+        <tbody>
+            <tr>
+                <th>Sayın </th>
+                <td>@musteriSession.KullaniciAdi</td>
+            </tr>
+            <tr>
+                <th>Film Adı</th>
+                <td>@ViewBag.Seans.Film.FilmAdi</td>
+            </tr>
+            <tr>
+                <th>Salon Adı </th>
+                <td>@ViewBag.Seans.Salon.SalonAdi</td>
+
+            </tr>
+            <tr>
+                <th>Seans Günü</th>
+                <td>@ViewBag.Seans.Gun.Tarih.Date.ToString("dd-MM-yyyy")</td>
+
+            </tr>
+            <tr>
+                <th>Seans Saati</th>
+                <td>@ViewBag.Seans.Saat</td>
+            </tr>
+            <tr>
+                <th>Bilet Fiyatı :</th>
+                <td>@ViewBag.Fiyat ₺</td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="col-5 ml-5">
+    <h2 class="mb-5"> Lütfen Koltuk Seçimi Yapınız</h2>
+    <div class="row">
+    <button class="bg-dark px-3 py-1 mb-5">Ekran</button>
+    </div>
+    <div>
+    @foreach(var koltuklar in ViewBag.Seans.Koltuk){
+
+        if(koltuklar.BosMu == true){
+            <a asp-action="BiletOnay"asp-route-id="@ViewBag.Seans.Id" asp-route-koltuk="@koltuklar.Id" class="btn btn-success">
+                @koltuklar.KoltukNo</a>
+        }
+        else{
+            <button class="btn btn-danger disabled">@koltuklar.KoltukNo</button>
+        }
+    }
+    </div>
+</div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+
+</div>

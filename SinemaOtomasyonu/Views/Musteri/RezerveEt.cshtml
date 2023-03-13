@@ -1,0 +1,58 @@
+﻿@model IEnumerable<SinemaOtomasyonu.Models.Seans>
+
+@{
+    ViewData["Title"] = "Seanslar";
+    Layout = "_Layout_Musteri";
+}
+
+<h1 class="mt-3 mb-5">Seans Listesi</h1>
+
+<p>
+
+</p>
+<table id="myTable" class="table">
+
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Saat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Film)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Salon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gun)
+            </th>
+            <th>
+                <span class="border-dark">Rezervasyon</span>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model){
+        if(item.Gun != null && item.Salon != null)
+                {
+                    <tr>
+                        <td>
+                    @Html.DisplayFor(modelItem => item.Saat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Film.FilmAdi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Salon.SalonAdi)
+                </td>
+                <td>
+                    @item.Gun.Tarih.Date.ToString("dd-MM-yyyy")
+                </td>
+                <td>
+                    <a class="btn btn-info" asp-action="BiletSayfasi" asp-route-id="@item.Id">Bilet Rezerve Et</a>
+                </td>
+            </tr>
+            }
+        }
+    </tbody>
+</table>

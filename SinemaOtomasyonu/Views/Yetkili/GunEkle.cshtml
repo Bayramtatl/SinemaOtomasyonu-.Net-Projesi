@@ -1,0 +1,36 @@
+﻿@model SinemaOtomasyonu.Models.Gun
+
+@{
+    ViewData["Title"] = "GunEkle";
+    Layout = "_Layout_Yetkili";
+}
+
+
+
+<hr />
+<div class="row">
+    <div class="col-md-10">
+        <h2>Gün Ekle</h2>
+        <form asp-action="GunEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Tarih" class="control-label"></label>
+                <input asp-for="Tarih" is-accept-old-day="false" value="@DateTime.Now.ToString("yyyy-MM-dd")" class="form-control" />
+                <span asp-validation-for="Tarih" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Geri Dön</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

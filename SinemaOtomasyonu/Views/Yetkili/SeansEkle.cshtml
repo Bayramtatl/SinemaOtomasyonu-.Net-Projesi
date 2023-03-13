@@ -1,0 +1,44 @@
+﻿@model SinemaOtomasyonu.Models.Seans
+
+@{
+    Layout = "_Layout_Yetkili";
+    ViewData["Title"] = "View";
+}
+
+<h1 class="mt-2 title-1">Seans Bilgileri</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="View">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Seans Seçiniz</label>
+                <input asp-for="Saat" class="form-control" />
+                <span asp-validation-for="Saat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FilmId" class="control-label"></label>
+                <select asp-for="FilmId" class ="form-control" asp-items="ViewBag.Filmler"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SalonId" class="control-label"></label>
+                <select asp-for="SalonId" class ="form-control" asp-items="ViewBag.Salonlar"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="GunId" class="control-label"></label>
+                <select asp-for="GunId" class="form-control" asp-items="ViewBag.Gunler"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" asp-action="SeansEkle" asp-controller="Yetkili" value="Seans Ekle" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

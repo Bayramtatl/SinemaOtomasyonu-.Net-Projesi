@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SinemaOtomasyonu.Models.Bilet>
+
+@{
+    ViewData["Title"] = "RezervasyonList";
+    Layout = "_Layout_Yetkili";
+}
+
+<h3>Aktif Rezervasyonlar</h3>
+<hr />
+<div class="col-md-12">
+    <div class="table-responsive m-b-40">
+        <table class="table table-borderless table-data3">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.BiletDurumu)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fiyat)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Musteri)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Koltuk)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.GuncellenmeTarihi)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.AktifMi)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.BiletDurumu)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fiyat)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Musteri.KullaniciAdi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Koltuk.KoltukNo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.GuncellenmeTarihi)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.AktifMi)
+                        </td>
+                        <td>
+                            <a class="btn btn-success" asp-action="Edit" asp-route-id="@item.Id">Onayla</a>
+                            <a class="btn btn-secondary" asp-action="Delete" asp-route-id="@item.Id">İptal Et</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
