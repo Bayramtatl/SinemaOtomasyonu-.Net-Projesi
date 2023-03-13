@@ -5,6 +5,7 @@ Bu web otomasyonu basitçe özetlemek gerekirse ;
 - Müşterilerin siteye kayıt olmasını, siteden gün bazlı filmleri listeleyebilmelerini, koltuk seçimi yaparak bilet rezerve edebilmelerini ve satın alımlarını görüntüleyebilmelerini sağlar.
 - Personellerin rezerve edilmiş biletleri panel üzerinden görüntüleyerek onaylayabilmelerini sağlar.
 
+
 |Tasarım | Programlama Dili | Veri Tabanı | Yardımcı Araçlar |
 | -- | -- | -- | -- |
 | Html,Css,Javascript | C# & .Net 6.0 | MsMSql | ORM (EntityFramework),Bootstrap |
