@@ -8,7 +8,7 @@ Bu web otomasyonu basitçe özetlemek gerekirse ;
 
 |Tasarım | Programlama Dili | Veri Tabanı | Yardımcı Araçlar |
 | -- | -- | -- | -- |
-| Html,Css,Javascript | C# & .Net 6.0 | MsMSql | ORM (EntityFramework),Bootstrap |
+| Html,Css,Javascript | C# & .Net 6.0 | MsSql | ORM (EntityFramework),Bootstrap |
 
 ## Admin Paneli Ekran Görüntüleri
 ![image](https://user-images.githubusercontent.com/92461836/224819377-b7405f8d-1e8f-41b0-a19d-bf932e942e8f.png)
