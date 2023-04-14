@@ -2,6 +2,8 @@
 # Set default behavior to automatically normalize line endings.
 ###############################################################################
 * text=auto
+*.cshtml linguist-language=C#
+*.cs linguist-language=C#
 
 ###############################################################################
 # Set default behavior for command prompt diff.
